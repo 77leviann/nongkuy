@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nongkuy/constants/name_routes_constant.dart';
 import 'package:nongkuy/screens/home/home_screen.dart';
+import 'package:nongkuy/screens/splash/splash_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -51,7 +52,8 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: NameRoutes.initRoute,
       routes: {
-        NameRoutes.initRoute: (context) => const HomeScreen(),
+        NameRoutes.initRoute: (context) => const SplashScreen(),
+        NameRoutes.homeScreen: (context) => const HomeScreen()
       },
     );
   }
