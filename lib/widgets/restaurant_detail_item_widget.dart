@@ -2,9 +2,12 @@ part of 'restaurant_list_widget.dart';
 
 class RestaurantDetailItemWidget extends StatelessWidget {
   final Restaurant restaurant;
+  final String uniqueTag;
+
   const RestaurantDetailItemWidget({
     super.key,
     required this.restaurant,
+    required this.uniqueTag,
   });
 
   @override
@@ -17,7 +20,10 @@ class RestaurantDetailItemWidget extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 height: 300,
-                child: RestaurantImageWidget(pictureId: restaurant.pictureId),
+                child: RestaurantImageWidget(
+                  pictureId: restaurant.pictureId,
+                  uniqueTag: uniqueTag,
+                ),
               ),
               Positioned(
                 bottom: 0,

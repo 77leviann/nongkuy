@@ -5,9 +5,12 @@ import 'package:nongkuy/widgets/restaurant_list_widget.dart';
 
 class DetailScreen extends StatelessWidget {
   final Restaurant restaurant;
+  final String uniqueTag;
+
   const DetailScreen({
     super.key,
     required this.restaurant,
+    required this.uniqueTag,
   });
 
   @override
@@ -33,6 +36,7 @@ class DetailScreen extends StatelessWidget {
       ),
       body: RestaurantDetailItemWidget(
         restaurant: restaurant,
+        uniqueTag: uniqueTag,
       ),
     );
   }

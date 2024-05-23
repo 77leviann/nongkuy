@@ -2,14 +2,19 @@ part of 'restaurant_list_widget.dart';
 
 class RestaurantImageWidget extends StatelessWidget {
   final String? pictureId;
+  final String uniqueTag;
 
-  const RestaurantImageWidget({super.key, required this.pictureId});
+  const RestaurantImageWidget({
+    super.key,
+    required this.pictureId,
+    required this.uniqueTag,
+  });
 
   @override
   Widget build(BuildContext context) {
     return pictureId != null
         ? Hero(
-            tag: pictureId!,
+            tag: '$uniqueTag-$pictureId',
             child: Image.network(
               pictureId!,
               fit: BoxFit.cover,
@@ -18,7 +23,7 @@ class RestaurantImageWidget extends StatelessWidget {
               errorBuilder: (BuildContext context, Object exception,
                   StackTrace? stackTrace) {
                 return Hero(
-                  tag: pictureId!,
+                  tag: '$uniqueTag-$pictureId',
                   child: Image.asset(
                     AssetConstant.imageNotFound,
                     fit: BoxFit.cover,
@@ -30,7 +35,7 @@ class RestaurantImageWidget extends StatelessWidget {
             ),
           )
         : Hero(
-            tag: pictureId!,
+            tag: '$uniqueTag-$pictureId',
             child: Image.asset(
               AssetConstant.imageNotFound,
               fit: BoxFit.cover,

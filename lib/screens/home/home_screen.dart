@@ -97,7 +97,9 @@ class HomeScreenState extends State<HomeScreen> {
                             );
                           } else if (constraints.maxWidth <= 600) {
                             return RestaurantListWidget(
-                                restaurants: _filteredRestaurants);
+                              restaurants: _filteredRestaurants,
+                              uniqueTag: 'home',
+                            );
                           } else if (constraints.maxWidth <= 960) {
                             return Padding(
                               padding:
@@ -105,6 +107,7 @@ class HomeScreenState extends State<HomeScreen> {
                               child: RestaurantGridWidget(
                                 restaurants: _filteredRestaurants,
                                 gridCount: 2,
+                                uniqueTag: 'home',
                               ),
                             );
                           } else if (constraints.maxWidth <= 1200) {
@@ -114,6 +117,7 @@ class HomeScreenState extends State<HomeScreen> {
                               child: RestaurantGridWidget(
                                 restaurants: _filteredRestaurants,
                                 gridCount: 3,
+                                uniqueTag: 'home',
                               ),
                             );
                           } else {
@@ -123,6 +127,7 @@ class HomeScreenState extends State<HomeScreen> {
                               child: RestaurantGridWidget(
                                 restaurants: _filteredRestaurants,
                                 gridCount: 4,
+                                uniqueTag: 'home',
                               ),
                             );
                           }

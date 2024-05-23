@@ -54,13 +54,17 @@ class FavoriteScreenState extends State<FavoriteScreen> {
               child: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
                   if (constraints.maxWidth <= 600) {
-                    return RestaurantListWidget(restaurants: favorites);
+                    return RestaurantListWidget(
+                      restaurants: favorites,
+                      uniqueTag: 'favorite',
+                    );
                   } else if (constraints.maxWidth <= 960) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 80),
                       child: RestaurantGridWidget(
                         restaurants: favorites,
                         gridCount: 2,
+                        uniqueTag: 'favorite',
                       ),
                     );
                   } else if (constraints.maxWidth <= 1200) {
@@ -69,6 +73,7 @@ class FavoriteScreenState extends State<FavoriteScreen> {
                       child: RestaurantGridWidget(
                         restaurants: favorites,
                         gridCount: 3,
+                        uniqueTag: 'favorite',
                       ),
                     );
                   } else {
@@ -77,6 +82,7 @@ class FavoriteScreenState extends State<FavoriteScreen> {
                       child: RestaurantGridWidget(
                         restaurants: favorites,
                         gridCount: 4,
+                        uniqueTag: 'favorite',
                       ),
                     );
                   }

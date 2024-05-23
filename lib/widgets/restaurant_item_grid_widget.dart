@@ -5,6 +5,7 @@ class RestaurantItemGridWidget extends StatelessWidget {
   final String? name;
   final double? rating;
   final String? city;
+  final String uniqueTag;
 
   const RestaurantItemGridWidget({
     super.key,
@@ -12,6 +13,7 @@ class RestaurantItemGridWidget extends StatelessWidget {
     required this.name,
     required this.rating,
     required this.city,
+    required this.uniqueTag,
   });
 
   @override
@@ -59,7 +61,10 @@ class RestaurantItemGridWidget extends StatelessWidget {
                     8,
                   ),
                 ),
-                child: RestaurantImageWidget(pictureId: pictureId),
+                child: RestaurantImageWidget(
+                  pictureId: pictureId,
+                  uniqueTag: uniqueTag,
+                ),
               ),
             ),
           ),

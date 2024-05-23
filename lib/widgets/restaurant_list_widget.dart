@@ -19,8 +19,13 @@ part 'restaurant_menu_item_widget.dart';
 
 class RestaurantListWidget extends StatelessWidget {
   final List<Restaurant>? restaurants;
+  final String uniqueTag;
 
-  const RestaurantListWidget({super.key, required this.restaurants});
+  const RestaurantListWidget({
+    super.key,
+    required this.restaurants,
+    required this.uniqueTag,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,10 @@ class RestaurantListWidget extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailScreen(restaurant: restaurant),
+                  builder: (context) => DetailScreen(
+                    restaurant: restaurant,
+                    uniqueTag: uniqueTag,
+                  ),
                 ),
               );
             },
@@ -42,6 +50,7 @@ class RestaurantListWidget extends StatelessWidget {
               name: restaurant.name,
               rating: restaurant.rating,
               city: restaurant.city,
+              uniqueTag: uniqueTag,
             ));
       },
     );

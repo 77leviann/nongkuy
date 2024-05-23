@@ -3,11 +3,13 @@ part of 'restaurant_list_widget.dart';
 class RestaurantGridWidget extends StatelessWidget {
   final List<Restaurant>? restaurants;
   final int gridCount;
+  final String uniqueTag;
 
   const RestaurantGridWidget({
     super.key,
     required this.restaurants,
     required this.gridCount,
+    required this.uniqueTag,
   });
 
   @override
@@ -26,7 +28,10 @@ class RestaurantGridWidget extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailScreen(restaurant: restaurant),
+                  builder: (context) => DetailScreen(
+                    restaurant: restaurant,
+                    uniqueTag: uniqueTag,
+                  ),
                 ),
               );
             },
@@ -35,6 +40,7 @@ class RestaurantGridWidget extends StatelessWidget {
               name: restaurant.name,
               rating: restaurant.rating,
               city: restaurant.city,
+              uniqueTag: uniqueTag,
             ));
       },
     );
