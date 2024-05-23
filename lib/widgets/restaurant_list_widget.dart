@@ -3,6 +3,7 @@ import 'package:nongkuy/constants/asset_constant.dart';
 import 'package:nongkuy/constants/text_style_constant.dart';
 import 'package:nongkuy/models/local_restaurant_model.dart';
 import 'package:nongkuy/screens/detail/detail_screen.dart';
+import 'package:nongkuy/widgets/custom_favorite_widget.dart';
 
 part 'restaurant_image_widget.dart';
 part 'restaurant_name_widget.dart';

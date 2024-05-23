@@ -66,12 +66,19 @@ class RestaurantDetailItemWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                RestaurantNameWidget(
-                  name: restaurant.name,
-                  maxLines: 1,
-                ),
-                const SizedBox(
-                  height: 4,
+                Row(
+                  children: [
+                    RestaurantNameWidget(
+                      name: restaurant.name,
+                      maxLines: 1,
+                    ),
+                    const SizedBox(
+                      width: 4,
+                    ),
+                    CustomFavoriteWidget(
+                      restaurant: restaurant,
+                    ),
+                  ],
                 ),
                 RestaurantDescriptionWidget(
                   description: restaurant.description,

@@ -17,6 +17,7 @@ class DetailScreen extends StatelessWidget {
         title: Text(
           'Detail News',
           style: TextStyleConstant.headlineMedium(context),
+          overflow: TextOverflow.ellipsis,
         ),
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.primary,

@@ -60,6 +60,7 @@ class HomeScreenState extends State<HomeScreen> {
         title: Text(
           'Restaurant List',
           style: TextStyleConstant.headlineMedium(context),
+          overflow: TextOverflow.ellipsis,
         ),
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.primary,
