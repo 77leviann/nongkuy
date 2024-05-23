@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nongkuy/constants/name_routes_constant.dart';
 import 'package:nongkuy/screens/home/home_screen.dart';
 import 'package:nongkuy/screens/splash/splash_screen.dart';
+import 'package:nongkuy/widgets/custom_bottom_navigation_bar_widget.dart';
 
 void main() {
   runApp(const MainApp());
@@ -53,7 +54,7 @@ class MainApp extends StatelessWidget {
       initialRoute: NameRoutes.initRoute,
       routes: {
         NameRoutes.initRoute: (context) => const SplashScreen(),
-        NameRoutes.homeScreen: (context) => const HomeScreen(),
+        NameRoutes.homeScreen: (context) => const CustomBottomNavigationBarWidget(),
       },
     );
   }
