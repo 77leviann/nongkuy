@@ -8,25 +8,35 @@ class RestaurantImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return pictureId != null
-        ? Image.network(
-            pictureId!,
-            fit: BoxFit.cover,
-            filterQuality: FilterQuality.high,
-            colorBlendMode: BlendMode.darken,
-            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-              return Image.asset(
-                AssetConstant.imageNotFound,
-                fit: BoxFit.cover,
-                filterQuality: FilterQuality.high,
-                colorBlendMode: BlendMode.darken,
-              );
-            },
+        ? Hero(
+            tag: pictureId!,
+            child: Image.network(
+              pictureId!,
+              fit: BoxFit.cover,
+              filterQuality: FilterQuality.high,
+              colorBlendMode: BlendMode.darken,
+              errorBuilder: (BuildContext context, Object exception,
+                  StackTrace? stackTrace) {
+                return Hero(
+                  tag: pictureId!,
+                  child: Image.asset(
+                    AssetConstant.imageNotFound,
+                    fit: BoxFit.cover,
+                    filterQuality: FilterQuality.high,
+                    colorBlendMode: BlendMode.darken,
+                  ),
+                );
+              },
+            ),
           )
-        : Image.asset(
-            AssetConstant.imageNotFound,
-            fit: BoxFit.cover,
-            filterQuality: FilterQuality.high,
-            colorBlendMode: BlendMode.darken,
+        : Hero(
+            tag: pictureId!,
+            child: Image.asset(
+              AssetConstant.imageNotFound,
+              fit: BoxFit.cover,
+              filterQuality: FilterQuality.high,
+              colorBlendMode: BlendMode.darken,
+            ),
           );
   }
 }
