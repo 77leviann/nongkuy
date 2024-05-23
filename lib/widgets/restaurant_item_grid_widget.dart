@@ -3,7 +3,7 @@ part of 'restaurant_list_widget.dart';
 class RestaurantItemGridWidget extends StatelessWidget {
   final String? pictureId;
   final String? name;
-  final String? rating;
+  final double? rating;
   final String? city;
 
   const RestaurantItemGridWidget({

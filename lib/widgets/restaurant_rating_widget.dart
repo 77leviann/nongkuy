@@ -1,7 +1,7 @@
 part of 'restaurant_list_widget.dart';
 
 class RestaurantRatingWidget extends StatelessWidget {
-  final String? rating;
+  final double? rating;
 
   const RestaurantRatingWidget({
     super.key,
@@ -24,7 +24,7 @@ class RestaurantRatingWidget extends StatelessWidget {
         ),
         rating != null
             ? Text(
-                rating!,
+                rating!.toString(),
                 style: TextStyleConstant.labelMedium(
                   context,
                 ),

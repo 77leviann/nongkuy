@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nongkuy/constants/asset_constant.dart';
 import 'package:nongkuy/constants/text_style_constant.dart';
 import 'package:nongkuy/models/local_restaurant_model.dart';
+import 'package:nongkuy/screens/detail/detail_screen.dart';
 
 part 'restaurant_image_widget.dart';
 part 'restaurant_name_widget.dart';
@@ -10,6 +11,10 @@ part 'restaurant_city_widget.dart';
 part 'restaurant_item_list_widget.dart';
 part 'restaurant_item_grid_widget.dart';
 part 'restaurant_grid_widget.dart';
+part 'restaurant_description_widget.dart';
+part 'restaurant_menu_widget.dart';
+part 'restaurant_detail_item_widget.dart';
+part 'restaurant_menu_item_widget.dart';
 
 class RestaurantListWidget extends StatelessWidget {
   final List<Restaurant>? restaurants;
@@ -23,11 +28,18 @@ class RestaurantListWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         final restaurant = restaurants![index];
         return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailScreen(restaurant: restaurant),
+                ),
+              );
+            },
             child: RestaurantItemListWidget(
               pictureId: restaurant.pictureId,
               name: restaurant.name,
-              rating: restaurant.rating.toString(),
+              rating: restaurant.rating,
               city: restaurant.city,
             ));
       },

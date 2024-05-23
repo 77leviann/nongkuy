@@ -13,7 +13,7 @@ class RestaurantGridWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: gridCount,
         mainAxisSpacing: 16,
         crossAxisSpacing: 16,
@@ -22,11 +22,18 @@ class RestaurantGridWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         final restaurant = restaurants![index];
         return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailScreen(restaurant: restaurant),
+                ),
+              );
+            },
             child: RestaurantItemGridWidget(
               pictureId: restaurant.pictureId,
               name: restaurant.name,
-              rating: restaurant.rating.toString(),
+              rating: restaurant.rating,
               city: restaurant.city,
             ));
       },

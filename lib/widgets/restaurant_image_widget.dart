@@ -13,6 +13,14 @@ class RestaurantImageWidget extends StatelessWidget {
             fit: BoxFit.cover,
             filterQuality: FilterQuality.high,
             colorBlendMode: BlendMode.darken,
+            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+              return Image.asset(
+                AssetConstant.imageNotFound,
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.high,
+                colorBlendMode: BlendMode.darken,
+              );
+            },
           )
         : Image.asset(
             AssetConstant.imageNotFound,
