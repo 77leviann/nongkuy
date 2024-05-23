@@ -53,7 +53,8 @@ class MainApp extends StatelessWidget {
       initialRoute: NameRoutes.initRoute,
       routes: {
         NameRoutes.initRoute: (context) => const SplashScreen(),
-        NameRoutes.homeScreen: (context) => const CustomBottomNavigationBarWidget(),
+        NameRoutes.homeScreen: (context) =>
+            const CustomBottomNavigationBarWidget(),
       },
     );
   }
