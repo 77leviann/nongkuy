@@ -18,7 +18,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Detail News',
+          'Detail Restaurant',
           style: TextStyleConstant.headlineMedium(context),
           overflow: TextOverflow.ellipsis,
         ),

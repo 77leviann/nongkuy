@@ -50,12 +50,12 @@ class CustomBottomNavigationBarWidgetState
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.bookmark_add_rounded,
+              Icons.favorite_rounded,
               color: Theme.of(context).colorScheme.outlineVariant,
             ),
-            label: 'Bookmark',
+            label: 'Favorite',
             activeIcon: Icon(
-              Icons.bookmark_add_rounded,
+              Icons.favorite_rounded,
               color: Theme.of(context).colorScheme.onPrimary,
             ),
           ),
