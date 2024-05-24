@@ -35,4 +35,5 @@ class TextStyleConstant {
           color: Theme.of(context).colorScheme.onSurface,
         );
   }
+
 }

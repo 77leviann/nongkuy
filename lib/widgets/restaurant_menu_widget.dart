@@ -1,7 +1,11 @@
-part of 'restaurant_list_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:nongkuy/constants/text_style_constant.dart';
+import 'package:nongkuy/models/get_restaurant_detail_response_model.dart';
+import 'package:nongkuy/widgets/restaurant_menu_item_widget.dart';
 
 class RestaurantMenuWidget extends StatelessWidget {
-  final Restaurant restaurant;
+  final Restaurant? restaurant;
+
   const RestaurantMenuWidget({
     super.key,
     required this.restaurant,
@@ -18,37 +22,49 @@ class RestaurantMenuWidget extends StatelessWidget {
             context,
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(
+          height: 8,
+        ),
         SizedBox(
           height: 40,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
-            itemCount: restaurant.menus?.foods?.length ?? 0,
-            itemBuilder: (context, index) {
+            itemCount: restaurant?.menus?.foods?.length ?? 0,
+            itemBuilder: (
+              context,
+              index,
+            ) {
               return RestaurantMenuItemWidget(
-                restaurant: restaurant.menus!.foods![index].name ?? '',
+                menu: restaurant?.menus!.foods![index].name ?? '',
               );
             },
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(
+          height: 16,
+        ),
         Text(
           'Drinks',
           style: TextStyleConstant.bodyLarge(
             context,
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(
+          height: 8,
+        ),
         SizedBox(
           height: 40,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
-            itemCount: restaurant.menus?.drinks?.length ?? 0,
-            itemBuilder: (context, index) {
+            itemCount: restaurant?.menus?.drinks?.length ?? 0,
+            itemBuilder: (
+              context,
+              index,
+            ) {
               return RestaurantMenuItemWidget(
-                restaurant: restaurant.menus!.drinks![index].name ?? '',
+                menu: restaurant?.menus!.drinks![index].name ?? '',
               );
             },
           ),

@@ -1,4 +1,5 @@
-part of 'restaurant_list_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:nongkuy/constants/text_style_constant.dart';
 
 class RestaurantRatingWidget extends StatelessWidget {
   final double? rating;
