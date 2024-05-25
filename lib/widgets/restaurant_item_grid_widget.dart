@@ -1,4 +1,10 @@
-part of 'restaurant_list_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:nongkuy/models/get_restaurant_list_response_model.dart';
+import 'package:nongkuy/widgets/custom_favorite_widget.dart';
+import 'package:nongkuy/widgets/restaurant_city_widget.dart';
+import 'package:nongkuy/widgets/restaurant_image_widget.dart';
+import 'package:nongkuy/widgets/restaurant_name_widget.dart';
+import 'package:nongkuy/widgets/restaurant_rating_widget.dart';
 
 class RestaurantItemGridWidget extends StatelessWidget {
   final String? pictureId;
@@ -6,6 +12,7 @@ class RestaurantItemGridWidget extends StatelessWidget {
   final double? rating;
   final String? city;
   final String uniqueTag;
+  final Restaurant? favorite;
 
   const RestaurantItemGridWidget({
     super.key,
@@ -14,6 +21,7 @@ class RestaurantItemGridWidget extends StatelessWidget {
     required this.rating,
     required this.city,
     required this.uniqueTag,
+    required this.favorite,
   });
 
   @override
@@ -74,9 +82,16 @@ class RestaurantItemGridWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              RestaurantNameWidget(
-                name: name,
-                maxLines: 1,
+              Row(
+                children: [
+                  RestaurantNameWidget(
+                    name: name,
+                    maxLines: 1,
+                  ),
+                  FavoriteWidget(
+                    restaurant: favorite!,
+                  ),
+                ],
               ),
               const SizedBox(
                 height: 6,

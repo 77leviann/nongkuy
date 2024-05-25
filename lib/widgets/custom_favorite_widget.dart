@@ -1,78 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nongkuy/helpers/db_helper.dart';
-import 'package:nongkuy/models/local_restaurant_model.dart';
+import '../models/get_restaurant_list_response_model.dart';
 
-class CustomFavoriteWidget extends StatefulWidget {
+part '../constrollers/custom_favorite_controller.dart';
+
+class FavoriteWidget extends StatelessWidget {
   final Restaurant restaurant;
-  const CustomFavoriteWidget({
-    required this.restaurant,
+  final FavoriteController favoriteController = Get.find();
+
+  FavoriteWidget({
     super.key,
+    required this.restaurant,
   });
 
   @override
-  CustomFavoriteWidgetState createState() => CustomFavoriteWidgetState();
-}
-
-class CustomFavoriteWidgetState extends State<CustomFavoriteWidget> {
-  bool isFavorite = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _checkFavorite();
-  }
-
-  Future<void> _checkFavorite() async {
-    final dbHelper = DBHelper();
-    final favorites = await dbHelper.getFavorites();
-    setState(() {
-      isFavorite = favorites.any(
+  Widget build(BuildContext context) {
+    return Obx(() {
+      bool isFavorite = favoriteController.favorites.any(
         (
-          rest,
+          element,
         ) =>
-            rest.id == widget.restaurant.id,
+            element.id == restaurant.id,
       );
-    });
-  }
-
-  Future<void> _toggleFavorite() async {
-    final dbHelper = DBHelper();
-    String message;
-    if (isFavorite) {
-      await dbHelper.deleteFavorite(
-        widget.restaurant.id!,
-      );
-      message = 'Restaurant favorite removed';
-    } else {
-      await dbHelper.insertFavorite(
-        widget.restaurant,
-      );
-      message = 'Restaurant favorite added';
-    }
-    setState(() {
-      isFavorite = !isFavorite;
-    });
-
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(message),
+      return IconButton(
+        icon: AnimatedContainer(
           duration: const Duration(
-            seconds: 1,
+            milliseconds: 300,
+          ),
+          curve: Curves.easeInOut,
+          transform: isFavorite
+              ? Matrix4.rotationY(
+                  0.5,
+                )
+              : Matrix4.rotationY(
+                  0,
+                ),
+          child: Icon(
+            isFavorite ? Icons.favorite : Icons.favorite_border,
+            color: isFavorite
+                ? Theme.of(
+                    context,
+                  ).colorScheme.error
+                : null,
           ),
         ),
+        onPressed: () async {
+          if (isFavorite) {
+            await favoriteController.removeFavorite(
+              restaurant.id!,
+            );
+          } else {
+            await favoriteController.addFavorite(
+              restaurant,
+            );
+          }
+        },
       );
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        isFavorite ? Icons.favorite : Icons.favorite_border,
-      ),
-      onPressed: _toggleFavorite,
-      color: isFavorite ? Theme.of(context).colorScheme.error : null,
-    );
+    });
   }
 }

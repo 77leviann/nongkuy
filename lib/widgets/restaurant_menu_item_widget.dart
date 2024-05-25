@@ -1,11 +1,11 @@
-part of 'restaurant_list_widget.dart';
+import 'package:flutter/material.dart';
 
 class RestaurantMenuItemWidget extends StatelessWidget {
-  final String? restaurant;
+  final String? menu;
 
   const RestaurantMenuItemWidget({
     super.key,
-    required this.restaurant,
+    required this.menu,
   });
 
   @override
@@ -20,17 +20,21 @@ class RestaurantMenuItemWidget extends StatelessWidget {
             8,
           ),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primaryContainer,
+            color: Theme.of(
+              context,
+            ).colorScheme.primaryContainer,
             borderRadius: BorderRadius.circular(
               8,
             ),
             border: Border.all(
-              color: Theme.of(context).colorScheme.outlineVariant,
+              color: Theme.of(
+                context,
+              ).colorScheme.outlineVariant,
               width: 2,
             ),
           ),
           child: Text(
-            restaurant!,
+            menu!,
             textAlign: TextAlign.center,
           ),
         ),

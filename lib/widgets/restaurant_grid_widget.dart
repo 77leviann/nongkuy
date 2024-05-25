@@ -1,4 +1,8 @@
-part of 'restaurant_list_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:nongkuy/models/get_restaurant_list_response_model.dart';
+import 'package:nongkuy/screens/detail/detail_screen.dart';
+import 'package:nongkuy/widgets/restaurant_item_grid_widget.dart';
 
 class RestaurantGridWidget extends StatelessWidget {
   final List<Restaurant>? restaurants;
@@ -24,24 +28,23 @@ class RestaurantGridWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         final restaurant = restaurants![index];
         return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailScreen(
-                    restaurant: restaurant,
-                    uniqueTag: uniqueTag,
-                  ),
-                ),
-              );
-            },
-            child: RestaurantItemGridWidget(
-              pictureId: restaurant.pictureId,
-              name: restaurant.name,
-              rating: restaurant.rating,
-              city: restaurant.city,
-              uniqueTag: uniqueTag,
-            ));
+          onTap: () {
+            Get.to(
+              () => DetailScreen(
+                restaurantId: restaurant.id ?? '',
+                uniqueTag: uniqueTag,
+              ),
+            );
+          },
+          child: RestaurantItemGridWidget(
+            pictureId: restaurant.pictureId,
+            name: restaurant.name,
+            rating: restaurant.rating,
+            city: restaurant.city,
+            uniqueTag: uniqueTag,
+            favorite: restaurant,
+          ),
+        );
       },
     );
   }

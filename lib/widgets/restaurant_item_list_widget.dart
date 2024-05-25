@@ -1,4 +1,10 @@
-part of 'restaurant_list_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:nongkuy/models/get_restaurant_list_response_model.dart';
+import 'package:nongkuy/widgets/custom_favorite_widget.dart';
+import 'package:nongkuy/widgets/restaurant_city_widget.dart';
+import 'package:nongkuy/widgets/restaurant_image_widget.dart';
+import 'package:nongkuy/widgets/restaurant_name_widget.dart';
+import 'package:nongkuy/widgets/restaurant_rating_widget.dart';
 
 class RestaurantItemListWidget extends StatelessWidget {
   final String? pictureId;
@@ -6,6 +12,7 @@ class RestaurantItemListWidget extends StatelessWidget {
   final double? rating;
   final String? city;
   final String uniqueTag;
+  final Restaurant? favorite;
 
   const RestaurantItemListWidget({
     super.key,
@@ -14,6 +21,7 @@ class RestaurantItemListWidget extends StatelessWidget {
     required this.rating,
     required this.city,
     required this.uniqueTag,
+    required this.favorite,
   });
 
   @override
@@ -41,41 +49,48 @@ class RestaurantItemListWidget extends StatelessWidget {
           ),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              height: 100,
-              width: 120,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Theme.of(
-                    context,
-                  ).colorScheme.surface,
-                  width: 2,
-                ),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(
-                    8,
+            Flexible(
+              flex: 2,
+              child: Container(
+                height: 100,
+                width: 120,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.surface,
+                    width: 2,
+                  ),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      8,
+                    ),
                   ),
                 ),
-              ),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(
-                    8,
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      8,
+                    ),
                   ),
-                ),
-                child: RestaurantImageWidget(
-                  pictureId: pictureId,
-                  uniqueTag: uniqueTag,
+                  child: RestaurantImageWidget(
+                    pictureId: pictureId,
+                    uniqueTag: uniqueTag,
+                  ),
                 ),
               ),
             ),
             const SizedBox(
               width: 16,
             ),
-            Expanded(
+            Flexible(
+              flex: 2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   RestaurantNameWidget(
                     name: name,
@@ -94,6 +109,12 @@ class RestaurantItemListWidget extends StatelessWidget {
                     rating: rating,
                   )
                 ],
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: FavoriteWidget(
+                restaurant: favorite!,
               ),
             ),
           ],

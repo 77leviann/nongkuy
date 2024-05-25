@@ -1,4 +1,6 @@
-part of 'restaurant_list_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:nongkuy/constants/asset_constant.dart';
+import 'package:nongkuy/utils/base_url_util.dart';
 
 class RestaurantImageWidget extends StatelessWidget {
   final String? pictureId;
@@ -12,11 +14,14 @@ class RestaurantImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return pictureId != null
+    String? fullImageUrl =
+        pictureId != null ? '${BaseUrlUtil.baseImageUrl}/$pictureId' : null;
+
+    return fullImageUrl != null
         ? Hero(
             tag: '$uniqueTag-$pictureId',
             child: Image.network(
-              pictureId!,
+              fullImageUrl,
               fit: BoxFit.cover,
               filterQuality: FilterQuality.high,
               colorBlendMode: BlendMode.darken,
