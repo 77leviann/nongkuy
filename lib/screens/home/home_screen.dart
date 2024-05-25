@@ -7,7 +7,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:nongkuy/constants/text_style_constant.dart';
 import 'package:nongkuy/enums/status_enum.dart';
 import 'package:nongkuy/models/get_restaurant_list_response_model.dart';
-import 'package:nongkuy/models/services/get_restaurant_service.dart';
+import 'package:nongkuy/models/services/restaurant_service.dart';
 import 'package:nongkuy/widgets/restaurant_grid_widget.dart';
 import 'package:nongkuy/widgets/restaurant_list_widget.dart';
 

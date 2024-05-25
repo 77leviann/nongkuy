@@ -5,7 +5,7 @@ class HomeController extends GetxController {
   RxList<Restaurant> restaurantList = <Restaurant>[].obs;
   RxString errorMessage = ''.obs;
 
-  final GetRestaurantService _restaurantService = GetRestaurantService();
+  final RestaurantService _restaurantService = RestaurantService();
 
   @override
   void onInit() {

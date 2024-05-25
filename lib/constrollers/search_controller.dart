@@ -5,7 +5,7 @@ class SearchController extends GetxController {
   RxList<Restaurant> restaurantList = <Restaurant>[].obs;
   TextEditingController searchController = TextEditingController();
 
-  final GetRestaurantService _restaurantService = GetRestaurantService();
+  final RestaurantService _restaurantService = RestaurantService();
 
   @override
   void onClose() {

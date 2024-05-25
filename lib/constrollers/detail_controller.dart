@@ -8,7 +8,7 @@ class DetailController extends GetxController {
   );
   RxString errorMessage = ''.obs;
 
-  final GetRestaurantService _restaurantService = GetRestaurantService();
+  final RestaurantService _restaurantService = RestaurantService();
 
   Future<void> getRestaurantDetail(String id) async {
     try {

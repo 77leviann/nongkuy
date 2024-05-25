@@ -2,10 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:nongkuy/models/get_restaurant_detail_response_model.dart';
 import 'package:nongkuy/models/get_restaurant_list_response_model.dart';
 import 'package:nongkuy/models/get_restaurant_search_response_model.dart';
+import 'package:nongkuy/models/post_restaurant_review_response_model.dart';
 import 'package:nongkuy/utils/base_url_util.dart';
 import 'package:flutter/foundation.dart';
 
-class GetRestaurantService {
+class RestaurantService {
   final Dio dio = Dio();
 
   Future<GetRestaurantListResponseModel> getRestaurantList() async {
@@ -95,6 +96,41 @@ class GetRestaurantService {
       }
       throw Exception(
         'Failed to search restaurant',
+      );
+    }
+  }
+
+  Future<PostRestaurantReviewResponseModel> postRestaurantReview(
+      String id, String name, String review) async {
+    try {
+      final response = await dio.post(
+        '${BaseUrlUtil.baseUrl}/review',
+        data: {
+          "id": id,
+          "name": name,
+          "review": review,
+        },
+      );
+      if (response.statusCode == 200) {
+        return PostRestaurantReviewResponseModel.fromJson(
+          response.data,
+        );
+      } else {
+        if (kDebugMode) {
+          print(
+            'Error: Failed to post restaurant review. Status code: ${response.statusCode}',
+          );
+        }
+        throw Exception(
+          'Failed to post restaurant review',
+        );
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error: $e');
+      }
+      throw Exception(
+        'Failed to post restaurant review',
       );
     }
   }

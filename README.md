@@ -58,9 +58,10 @@
 
 ## About The Project
 
-![Rating Project](images/screenshot/rating_project.png)
+![Rating Project 1](images/screenshot/rating_project.png)
+![Rating Project 2](images/screenshot/rating_project_2.png)
 
-Nongkuy is an app tailored to offer users a selection of local restaurants, tapping into local data to provide an authentic dining experience.
+Nongkuy is an app tailored to offer users a selection of restaurants, tapping into API data to provide an authentic dining experience.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -77,6 +78,8 @@ dependencies:
   google_fonts: ^6.1.0
   sqflite: ^2.3.3+1
   path: ^1.9.0
+  get: ^4.6.6
+  dio: ^5.4.3+1
 
 dev_dependencies:
   flutter_test:
@@ -123,8 +126,8 @@ Below are some screenshots that demonstrate the usage of the project:
 
 |                                                              |                                                              |                                                              |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|                    **Splash Screen**                     |                     **Home Screen**                     |                    **Search Widget**                    |
-|    ![Splash Screen](images/feature/splash_screen.png)     |     ![Home Screen](images/feature/home_screen.png)      | ![Search Widget](images/feature/search_widget.png) |
+|                    **Splash Screen**                     |                     **Home Screen**                     |                    **Search Screen**                    |
+|    ![Splash Screen](images/feature/splash_screen.png)     |     ![Home Screen](images/feature/home_screen.png)      | ![Search Screen](images/feature/search_screen.png) |
 |                    **Detail Screen**                    |                    **Detail Screen 2**                    |                    **Favorite Screen**                    |
 | ![Detail Screen](images/feature/detail_screen.png) | ![Detail Screen 2](images/feature/detail_screen_2.png) | ![Favorite Screen](images/feature/favorite_screen.png) |
 
@@ -136,6 +139,7 @@ Below are some screenshots that demonstrate the usage of the project:
 - [ ] Home
 - [ ] Detail
 - [ ] Favorite
+- [ ] Search
 
 See the [open issues](https://github.com/77leviann/nongkuy/issues) for a full list of proposed features (and known issues).
 

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:nongkuy/constants/text_style_constant.dart';
 import 'package:nongkuy/enums/status_enum.dart';
 import 'package:nongkuy/models/get_restaurant_search_response_model.dart';
-import 'package:nongkuy/models/services/get_restaurant_service.dart';
+import 'package:nongkuy/models/services/restaurant_service.dart';
 import 'package:nongkuy/screens/detail/detail_screen.dart';
 import 'package:nongkuy/widgets/restaurant_city_widget.dart';
 import 'package:nongkuy/widgets/restaurant_image_widget.dart';
@@ -80,7 +80,24 @@ class SearchScreen extends StatelessWidget {
                 () {
                   switch (controller.status.value) {
                     case Status.idle:
-                      return const SizedBox.shrink();
+                      return SizedBox(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.search_rounded,
+                              size: 100,
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.primary,
+                            ),
+                            const Text(
+                              'Find your favorite restaurant here!',
+                            ),
+                          ],
+                        ),
+                      );
                     case Status.loading:
                       return const Center(
                         child: CircularProgressIndicator(),

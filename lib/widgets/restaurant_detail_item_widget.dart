@@ -22,114 +22,112 @@ class RestaurantDetailItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Stack(
+    return Column(
+      children: [
+        Stack(
+          children: [
+            SizedBox(
+              width: double.infinity,
+              height: 300,
+              child: RestaurantImageWidget(
+                pictureId: restaurant?.pictureId,
+                uniqueTag: uniqueTag,
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: 140,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.transparent,
+                      Theme.of(
+                        context,
+                      ).colorScheme.onInverseSurface.withOpacity(
+                            0.9,
+                          ),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 16,
+              right: 16,
+              child: Container(
+                padding: const EdgeInsets.all(
+                  8,
+                ),
+                color: Theme.of(
+                  context,
+                ).colorScheme.surface,
+                child: RestaurantRatingWidget(
+                  rating: restaurant?.rating,
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 16.0,
+              left: 16.0,
+              child: Row(
+                children: [
+                  RestaurantCityWidget(
+                    city: restaurant?.city,
+                  ),
+                  RestaurantAddressWidget(
+                    address: restaurant?.address,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.all(
+            16,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: double.infinity,
-                height: 300,
-                child: RestaurantImageWidget(
-                  pictureId: restaurant?.pictureId,
-                  uniqueTag: uniqueTag,
-                ),
-              ),
-              Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: Container(
-                  height: 140,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.transparent,
-                        Theme.of(
-                          context,
-                        ).colorScheme.onInverseSurface.withOpacity(
-                              0.9,
-                            ),
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  RestaurantNameWidget(
+                    name: restaurant?.name,
+                    maxLines: 1,
                   ),
-                ),
-              ),
-              Positioned(
-                top: 16,
-                right: 16,
-                child: Container(
-                  padding: const EdgeInsets.all(
-                    8,
+                  const SizedBox(
+                    width: 8,
                   ),
-                  color: Theme.of(
-                    context,
-                  ).colorScheme.surface,
-                  child: RestaurantRatingWidget(
-                    rating: restaurant?.rating,
-                  ),
-                ),
+                  RestaurantCategoriesWidget(
+                    categories: restaurant?.categories?.first.name,
+                  )
+                ],
               ),
-              Positioned(
-                bottom: 16.0,
-                left: 16.0,
-                child: Row(
-                  children: [
-                    RestaurantCityWidget(
-                      city: restaurant?.city,
-                    ),
-                    RestaurantAddressWidget(
-                      address: restaurant?.address,
-                    ),
-                  ],
-                ),
+              RestaurantDescriptionWidget(
+                description: restaurant?.description,
+              ),
+              const SizedBox(
+                height: 4,
+              ),
+              RestaurantMenuWidget(
+                restaurant: restaurant,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              RestaurantReviewWidget(
+                restaurant: restaurant,
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(
-              16,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    RestaurantNameWidget(
-                      name: restaurant?.name,
-                      maxLines: 1,
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    RestaurantCategoriesWidget(
-                      categories: restaurant?.categories?.first.name,
-                    )
-                  ],
-                ),
-                RestaurantDescriptionWidget(
-                  description: restaurant?.description,
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                RestaurantMenuWidget(
-                  restaurant: restaurant,
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                RestaurantReviewWidget(
-                  restaurant: restaurant,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

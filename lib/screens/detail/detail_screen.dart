@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:nongkuy/constants/text_style_constant.dart';
 import 'package:nongkuy/enums/status_enum.dart';
 import 'package:nongkuy/models/get_restaurant_detail_response_model.dart';
-import 'package:nongkuy/models/services/get_restaurant_service.dart';
+import 'package:nongkuy/models/services/restaurant_service.dart';
+import 'package:nongkuy/widgets/restaurant_post_review_widget.dart';
 import 'package:nongkuy/widgets/restaurant_detail_item_widget.dart';
 
 part '../../constrollers/detail_controller.dart';
@@ -54,32 +55,52 @@ class DetailScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Obx(() {
-        switch (detailController.status.value) {
-          case Status.loading:
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          case Status.error:
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
+      body: Obx(
+        () {
+          switch (detailController.status.value) {
+            case Status.loading:
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            case Status.error:
+              return Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ),
+                  child: Text(
+                    detailController.errorMessage.value,
+                  ),
                 ),
-                child: Text(
-                  detailController.errorMessage.value,
+              );
+            case Status.hasData:
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    RestaurantDetailItemWidget(
+                      restaurant:
+                          detailController.restaurantDetail.value?.restaurant,
+                      uniqueTag: uniqueTag,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(
+                        16,
+                      ),
+                      child: RestaurantPostReviewWidget(
+                        restaurantId: restaurantId,
+                        onReviewAdded: () {
+                          detailController.getRestaurantDetail(restaurantId);
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            );
-          case Status.hasData:
-            return RestaurantDetailItemWidget(
-              restaurant: detailController.restaurantDetail.value?.restaurant,
-              uniqueTag: uniqueTag,
-            );
-          default:
-            return const SizedBox.shrink();
-        }
-      }),
+              );
+            default:
+              return const SizedBox.shrink();
+          }
+        },
+      ),
     );
   }
 }
