@@ -6,7 +6,9 @@ import 'package:nongkuy/widgets/restaurant_grid_widget.dart';
 import 'package:nongkuy/widgets/restaurant_list_widget.dart';
 
 class FavoriteScreen extends StatelessWidget {
-  final FavoriteController favoriteController = Get.find<FavoriteController>();
+  final FavoriteController favoriteController = Get.put(
+    FavoriteController(),
+  );
 
   FavoriteScreen({
     super.key,

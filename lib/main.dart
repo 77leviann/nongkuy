@@ -15,7 +15,6 @@ import 'package:nongkuy/screens/favorite/favorite_screen.dart';
 import 'package:nongkuy/screens/setting/setting_screen.dart';
 import 'package:nongkuy/screens/splash/splash_screen.dart';
 import 'package:nongkuy/widgets/custom_bottom_navigation_bar_widget.dart';
-import 'package:nongkuy/widgets/custom_favorite_widget.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -31,8 +30,6 @@ Future<void> main() async {
   }
 
   await notificationHelper.initNotifications(flutterLocalNotificationsPlugin);
-  Get.put(FavoriteController());
-
   runApp(const MainApp());
 }
 

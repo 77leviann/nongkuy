@@ -37,10 +37,10 @@ class RestaurantImageWidget extends StatelessWidget {
             ),
           )
         : Image.asset(
-          AssetConstant.imageNotFound,
-          fit: BoxFit.cover,
-          filterQuality: FilterQuality.high,
-          colorBlendMode: BlendMode.darken,
-        );
+            AssetConstant.imageNotFound,
+            fit: BoxFit.cover,
+            filterQuality: FilterQuality.high,
+            colorBlendMode: BlendMode.darken,
+          );
   }
 }
