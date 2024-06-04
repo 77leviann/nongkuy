@@ -10,17 +10,14 @@ import 'package:nongkuy/widgets/restaurant_detail_item_widget.dart';
 part '../../constrollers/detail_controller.dart';
 
 class DetailScreen extends StatelessWidget {
-  final String restaurantId;
-  final String uniqueTag;
-
-  const DetailScreen({
-    super.key,
-    required this.restaurantId,
-    required this.uniqueTag,
-  });
+  const DetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic> arguments = Get.arguments;
+    final String restaurantId = arguments['restaurantId'];
+    final String uniqueTag = arguments['uniqueTag'];
+
     final DetailController detailController = Get.put(
       DetailController(),
     );

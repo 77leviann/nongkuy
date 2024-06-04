@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get/get.dart';
+import 'package:nongkuy/constants/name_routes_constant.dart';
 import 'package:nongkuy/constants/text_style_constant.dart';
 import 'package:nongkuy/enums/status_enum.dart';
+import 'package:nongkuy/helpers/notification_helper.dart';
 import 'package:nongkuy/models/get_restaurant_list_response_model.dart';
 import 'package:nongkuy/models/services/restaurant_service.dart';
 import 'package:nongkuy/widgets/restaurant_grid_widget.dart';
@@ -32,6 +30,21 @@ class HomeScreen extends StatelessWidget {
             context,
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.toNamed(
+                NameRoutes.settingScreen,
+              );
+            },
+            icon: Icon(
+              Icons.settings,
+              color: Theme.of(
+                context,
+              ).colorScheme.onPrimary,
+            ),
+          ),
+        ],
         centerTitle: true,
         backgroundColor: Theme.of(
           context,

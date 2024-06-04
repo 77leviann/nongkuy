@@ -1,6 +1,8 @@
 part of '../screens/home/home_screen.dart';
 
 class HomeController extends GetxController {
+  final NotificationHelper _notificationHelper = NotificationHelper();
+
   Rx<Status> status = Status.loading.obs;
   RxList<Restaurant> restaurantList = <Restaurant>[].obs;
   RxString errorMessage = ''.obs;
@@ -11,6 +13,7 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     getRestaurantList();
+    _notificationHelper.configureSelectNotificationSubject();
   }
 
   Future<void> getRestaurantList() async {

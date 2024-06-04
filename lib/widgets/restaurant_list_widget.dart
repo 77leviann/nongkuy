@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nongkuy/constants/name_routes_constant.dart';
 import 'package:nongkuy/models/get_restaurant_list_response_model.dart';
-import 'package:nongkuy/screens/detail/detail_screen.dart';
 import 'package:nongkuy/widgets/restaurant_item_list_widget.dart';
 
 class RestaurantListWidget extends StatelessWidget {
@@ -25,11 +25,12 @@ class RestaurantListWidget extends StatelessWidget {
         final restaurant = restaurants![index];
         return GestureDetector(
           onTap: () {
-            Get.to(
-              () => DetailScreen(
-                restaurantId: restaurant.id ?? '',
-                uniqueTag: uniqueTag,
-              ),
+            Get.toNamed(
+              NameRoutes.detailScreen,
+              arguments: {
+                'restaurantId': restaurant.id ?? '',
+                'uniqueTag': uniqueTag,
+              },
             );
           },
           child: RestaurantItemListWidget(

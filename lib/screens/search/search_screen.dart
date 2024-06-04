@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nongkuy/constants/name_routes_constant.dart';
 import 'package:nongkuy/constants/text_style_constant.dart';
 import 'package:nongkuy/enums/status_enum.dart';
 import 'package:nongkuy/models/get_restaurant_search_response_model.dart';
 import 'package:nongkuy/models/services/restaurant_service.dart';
-import 'package:nongkuy/screens/detail/detail_screen.dart';
 import 'package:nongkuy/widgets/restaurant_city_widget.dart';
 import 'package:nongkuy/widgets/restaurant_image_widget.dart';
 import 'package:nongkuy/widgets/restaurant_name_widget.dart';
@@ -162,11 +162,11 @@ class SearchScreen extends StatelessWidget {
                                 city: restaurant.city,
                               ),
                               onTap: () {
-                                Get.to(
-                                  () => DetailScreen(
-                                    restaurantId: restaurant.id ?? '',
-                                    uniqueTag: 'search',
-                                  ),
+                                Get.toNamed(
+                                  NameRoutes.detailScreen,
+                                  arguments: {
+                                    'restaurantId': restaurant.id ?? '',
+                                  },
                                 )?.then(
                                   (
                                     _,
