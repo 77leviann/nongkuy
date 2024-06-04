@@ -7,7 +7,7 @@ import 'package:nongkuy/utils/base_url_util.dart';
 import 'package:flutter/foundation.dart';
 
 class RestaurantService {
-  final Dio dio = Dio();
+  late Dio dio = Dio();
 
   Future<GetRestaurantListResponseModel> getRestaurantList() async {
     try {

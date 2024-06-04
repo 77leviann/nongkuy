@@ -27,26 +27,20 @@ class RestaurantImageWidget extends StatelessWidget {
               colorBlendMode: BlendMode.darken,
               errorBuilder: (BuildContext context, Object exception,
                   StackTrace? stackTrace) {
-                return Hero(
-                  tag: '$uniqueTag-$pictureId',
-                  child: Image.asset(
-                    AssetConstant.imageNotFound,
-                    fit: BoxFit.cover,
-                    filterQuality: FilterQuality.high,
-                    colorBlendMode: BlendMode.darken,
-                  ),
+                return Image.asset(
+                  AssetConstant.imageNotFound,
+                  fit: BoxFit.cover,
+                  filterQuality: FilterQuality.high,
+                  colorBlendMode: BlendMode.darken,
                 );
               },
             ),
           )
-        : Hero(
-            tag: '$uniqueTag-$pictureId',
-            child: Image.asset(
-              AssetConstant.imageNotFound,
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.high,
-              colorBlendMode: BlendMode.darken,
-            ),
-          );
+        : Image.asset(
+          AssetConstant.imageNotFound,
+          fit: BoxFit.cover,
+          filterQuality: FilterQuality.high,
+          colorBlendMode: BlendMode.darken,
+        );
   }
 }
