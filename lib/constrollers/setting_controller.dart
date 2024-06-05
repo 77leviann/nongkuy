@@ -55,7 +55,7 @@ class SettingController extends GetxController {
       }
       update();
       return await AndroidAlarmManager.periodic(
-        const Duration(seconds: 2),
+        const Duration(hours: 24),
         1,
         BackgroundService.callback,
         startAt: DateTimeHelper.format(),

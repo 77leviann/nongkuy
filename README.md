@@ -60,6 +60,7 @@
 
 ![Rating Project 1](images/screenshot/rating_project.png)
 ![Rating Project 2](images/screenshot/rating_project_2.png)
+![Rating Project 3](images/screenshot/rating_project_3.png)
 
 Nongkuy is an app tailored to offer users a selection of restaurants, tapping into API data to provide an authentic dining experience.
 
@@ -130,6 +131,8 @@ Below are some screenshots that demonstrate the usage of the project:
 |    ![Splash Screen](images/feature/splash_screen.png)     |     ![Home Screen](images/feature/home_screen.png)      | ![Search Screen](images/feature/search_screen.png) |
 |                    **Detail Screen**                    |                    **Detail Screen 2**                    |                    **Favorite Screen**                    |
 | ![Detail Screen](images/feature/detail_screen.png) | ![Detail Screen 2](images/feature/detail_screen_2.png) | ![Favorite Screen](images/feature/favorite_screen.png) |
+|                    **Setting Screen**                    |                    **Setting Screen (Dark Theme Active)**                    |                    **Home Screen (Dark Theme Active)**                    |
+| ![Setting Screen](images/feature/setting_screen.png) | ![Setting Screen (Dark Theme Active)](images/feature/setting_screen_dark.png) | ![Home Screen](images/feature/home_screen_dark.png) |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -140,6 +143,8 @@ Below are some screenshots that demonstrate the usage of the project:
 - [ ] Detail
 - [ ] Favorite
 - [ ] Search
+- [ ] Notification
+- [ ] Dark Theme
 
 See the [open issues](https://github.com/77leviann/nongkuy/issues) for a full list of proposed features (and known issues).
 

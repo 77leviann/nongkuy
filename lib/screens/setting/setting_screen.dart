@@ -36,15 +36,19 @@ class SettingScreen extends StatelessWidget {
           children: [
             Material(
               child: Obx(() {
-                return ListTile(
-                  title: const Text('Dark Theme'),
-                  trailing: Switch.adaptive(
-                    value: settingController.themeMode == ThemeMode.dark,
-                    onChanged: (value) {
-                      settingController.setThemeMode(
-                        value ? ThemeMode.dark : ThemeMode.light,
-                      );
-                    },
+                return AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 500),
+                  child: ListTile(
+                    key: Key(settingController.themeMode.toString()),
+                    title: const Text('Dark Theme'),
+                    trailing: Switch.adaptive(
+                      value: settingController.themeMode == ThemeMode.dark,
+                      onChanged: (value) {
+                        settingController.setThemeMode(
+                          value ? ThemeMode.dark : ThemeMode.light,
+                        );
+                      },
+                    ),
                   ),
                 );
               }),

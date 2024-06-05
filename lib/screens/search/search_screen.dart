@@ -151,7 +151,7 @@ class SearchScreen extends StatelessWidget {
                                 ),
                                 child: RestaurantImageWidget(
                                   pictureId: restaurant.pictureId,
-                                  uniqueTag: 'search',
+                                  uniqueTag: 'uniqueTag',
                                 ),
                               ),
                               title: RestaurantNameWidget(
@@ -166,6 +166,7 @@ class SearchScreen extends StatelessWidget {
                                   NameRoutes.detailScreen,
                                   arguments: {
                                     'restaurantId': restaurant.id ?? '',
+                                    'uniqueTag': 'uniqueTag',
                                   },
                                 )?.then(
                                   (
