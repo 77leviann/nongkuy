@@ -81,11 +81,19 @@ dependencies:
   path: ^1.9.0
   get: ^4.6.6
   dio: ^5.4.3+1
+  intl: ^0.19.0
+  android_alarm_manager_plus: ^4.0.3
+  flutter_local_notifications: ^17.1.2
+  rxdart: ^0.27.7
+  shared_preferences: ^2.2.3
+  permission_handler: ^11.3.1
+  mockito: ^5.4.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  build_runner: ^2.4.10
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
